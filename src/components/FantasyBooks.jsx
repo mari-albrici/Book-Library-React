@@ -9,8 +9,8 @@ class FantasyBooks extends Component {
 				<Row>
 					{fantasy.map((book) => {
 						return (
-							<Col xs={3}>
-								<Card key={`book-${book.asin}`}>
+							<Col xs={3} key={`book-${book.asin}`}>
+								<Card>
 									<Card.Img variant="top" src={book.img} />
 									<Card.Body>
 										<Card.Title>{book.title}</Card.Title>

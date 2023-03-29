@@ -26,24 +26,29 @@ function App() {
 				<h5>Choose a category:</h5>
 
 				<Button className="btn-primary mx-3" onClick={handleClick}>
-					Romance {showComponent ? <RomanceBooks /> : null}
+					Romance
 				</Button>
+				{showComponent ? <RomanceBooks /> : null}
 
 				<Button className="btn-success mx-3" onClick={handleClick}>
-					Sci-Fi {showComponent ? <ScifiBooks /> : null}
+					Sci-Fi
 				</Button>
+				{showComponent ? <ScifiBooks /> : null}
 
 				<Button className="btn-danger mx-3" onClick={handleClick}>
-					Horror {showComponent ? <HorrorBooks /> : null}
+					Horror
 				</Button>
+				{showComponent ? <HorrorBooks /> : null}
 
 				<Button className="btn-warning mx-3" onClick={handleClick}>
-					Fantasy {showComponent ? <FantasyBooks /> : null}
+					Fantasy
 				</Button>
+				{showComponent ? <FantasyBooks /> : null}
 
 				<Button className="btn-dark mx-3" onClick={handleClick}>
-					History {showComponent ? <HistoryBooks /> : null}
+					History
 				</Button>
+				{showComponent ? <HistoryBooks /> : null}
 
 				<MyFooter />
 			</div>
