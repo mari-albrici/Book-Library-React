@@ -2,15 +2,15 @@ import { Component } from 'react';
 import { Card, Container, Row, Col, Button } from 'react-bootstrap';
 import romance from '../data/romance.json';
 
-class AllTheBooks extends Component {
+class RomanceBooks extends Component {
 	render() {
 		return (
 			<Container>
 				<Row>
-					{romance.map((book, index) => {
+					{romance.map((book) => {
 						return (
 							<Col xs={3}>
-								<Card>
+								<Card key={`book-${book.asin}`}>
 									<Card.Img variant="top" src={book.img} />
 									<Card.Body>
 										<Card.Title>{book.title}</Card.Title>
@@ -27,4 +27,4 @@ class AllTheBooks extends Component {
 	}
 }
 
-export default AllTheBooks;
+export default RomanceBooks;
