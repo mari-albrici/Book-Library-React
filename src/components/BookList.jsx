@@ -1,56 +1,47 @@
 import { Component } from 'react';
-import { Container, Row, Col, Form, FormControl } from 'react-bootstrap';
-import fantasy from '../data/fantasy';
-import history from '../data/history';
-import horror from '../data/history';
-import romance from '../data/romance';
-import scifi from '../data/scifi';
+import { Row, Col, Form, FormControl } from 'react-bootstrap';
+import fantasy from '../data/fantasy.json';
+import history from '../data/history.json';
+import horror from '../data/history.json';
+import romance from '../data/romance.json';
+import scifi from '../data/scifi.json';
 import SingleBook from './SingleBook';
 
 class BookList extends Component {
-	books = [...scifi, ...romance, ...horror, ...history, ...fantasy];
-
 	state = {
 		initialValue: null,
-		booksTitles: this.books.title,
+		searchString: '',
+		allTheBooks: [...scifi, ...fantasy, ...history, ...horror, ...romance],
 	};
 
-	handleChange = (e) => {
-		this.setState({ initialValue: e.target.value });
+	handleChange = (event) => {
+		this.setState({ initialValue: event.target.value });
+	};
+
+	filterBookList = (event) => {
+		this.setState({ searchString: event.target.value });
 	};
 
 	render() {
+		const { allTheBooks, searchString } = this.state;
+
+		const filteredBooks = allTheBooks.filter((book) => book.title.toLowerCase().includes(searchString.toLowerCase()));
+
 		return (
 			<>
-				<Container className="py-3">
-					<Form>
-						<FormControl type="text" placeholder="Choose a category" onChange={this.handleChange} />
+				<div className="bg-success bg-opacity-25 p-5">
+					<Form onChange={this.handleChange}>
+						<FormControl type="text" className="my-3" placeholder="Search a book" onChange={this.filterBookList} />
 					</Form>
-				</Container>
-				<Container>
-					<Row>
-						{this.books.map((book) => {
-							return (
-								<Col xs={3} key={`book-${book.asin}`}>
-									<SingleBook img={book.img} title={book.title} price={book.price} />
-								</Col>
-							);
-						})}
-					</Row>
-				</Container>
-				{this.state.booksTitles === this.handleChange.value && (
-					<Container>
-						<Row>
-							{this.books.map((book) => {
-								return (
-									<Col xs={3} key={`book-${book.asin}-${book.category}`}>
-										<SingleBook img={book.img} title={book.title} price={book.price} />
-									</Col>
-								);
-							})}
-						</Row>
-					</Container>
-				)}
+				</div>
+
+				<Row className="p-5">
+					{filteredBooks.map((book) => (
+						<Col xs={3} key={`book-${book.category}-${book.asin}`} className="p-3">
+							<SingleBook img={book.img} title={book.title} price={book.price} />
+						</Col>
+					))}
+				</Row>
 			</>
 		);
 	}

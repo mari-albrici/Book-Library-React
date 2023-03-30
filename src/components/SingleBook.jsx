@@ -15,11 +15,12 @@ class SingleBook extends Component {
 
 		return (
 			<Card onClick={this.handleClick} className={selectedClass}>
-				<Card.Img variant="top" src={this.props.img} />
+				<Card.Img variant="top" src={this.props.img} style={{ height: '500px' }} />
 				<Card.Body>
-					<Card.Title>{this.props.title}</Card.Title>
-					<Card.Text>€{this.props.price}</Card.Text>
-					<Button variant="primary">Read</Button>
+					<Card.Title className="text-truncate">{this.props.title}</Card.Title>
+					<Button variant="primary" className="px-3">
+						€{this.props.price}
+					</Button>
 				</Card.Body>
 			</Card>
 		);
