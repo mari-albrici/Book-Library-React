@@ -2,8 +2,8 @@ import { Component } from 'react';
 import { Row, Col, Form, FormControl } from 'react-bootstrap';
 import fantasy from '../data/fantasy.json';
 import history from '../data/history.json';
-import horror from '../data/history.json';
-import romance from '../data/romance.json';
+// import horror from '../data/history.json';
+// import romance from '../data/romance.json';
 import scifi from '../data/scifi.json';
 import SingleBook from './SingleBook';
 
@@ -11,14 +11,10 @@ class BookList extends Component {
 	state = {
 		initialValue: null,
 		searchString: '',
-		allTheBooks: [...scifi, ...fantasy, ...history, ...horror, ...romance],
+		allTheBooks: [...scifi, ...fantasy, ...history],
 	};
 
 	handleChange = (event) => {
-		this.setState({ initialValue: event.target.value });
-	};
-
-	filterBookList = (event) => {
 		this.setState({ searchString: event.target.value });
 	};
 
@@ -26,12 +22,13 @@ class BookList extends Component {
 		const { allTheBooks, searchString } = this.state;
 
 		const filteredBooks = allTheBooks.filter((book) => book.title.toLowerCase().includes(searchString.toLowerCase()));
+		console.log(filteredBooks);
 
 		return (
 			<>
 				<div className="bg-success bg-opacity-25 p-5">
-					<Form onChange={this.handleChange}>
-						<FormControl type="text" className="my-3" placeholder="Search a book" onChange={this.filterBookList} />
+					<Form>
+						<FormControl type="text" className="my-3" placeholder="Search a book" onChange={this.handleChange} />
 					</Form>
 				</div>
 
