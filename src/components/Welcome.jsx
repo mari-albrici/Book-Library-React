@@ -3,7 +3,7 @@ import bookBackground from '../assets/bookBackground.jpeg';
 
 const Welcome = () => (
 	<Container fluid className="py-3">
-		<Card className="bg-dark text-white" style={{ height: '200px' }}>
+		<Card className="bg-dark text-white border border-0" style={{ height: '200px' }}>
 			<Card.Img src={bookBackground} alt="Card image" className="img-fluid" style={{ height: '200px' }} />
 			<Card.ImgOverlay>
 				<Card.Title className="fs-1 bg-dark">All of the Books</Card.Title>

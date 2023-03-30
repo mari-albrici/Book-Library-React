@@ -3,7 +3,7 @@ import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 const MyNav = () => (
 	<Navbar bg="light" expand="lg">
 		<Container fluid>
-			<Navbar.Brand href="#home">All the Books</Navbar.Brand>
+			<Navbar.Brand href="#home">EpiBooks</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="me-auto">
