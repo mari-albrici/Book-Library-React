@@ -26,16 +26,16 @@ class BookList extends Component {
 
 		return (
 			<>
-				<div className="bg-success bg-opacity-25 p-5">
+				<div className="bg-success bg-opacity-25 p-5 mx-5">
 					<Form>
 						<FormControl type="text" className="my-3" placeholder="Search a book" onChange={this.handleChange} />
 					</Form>
 				</div>
 
-				<Row className="p-5">
+				<Row className="p-5 mx-5">
 					{filteredBooks.map((book) => (
 						<Col xs={3} key={`book-${book.category}-${book.asin}`} className="p-3">
-							<SingleBook img={book.img} title={book.title} price={book.price} />
+							<SingleBook id={book.asin} img={book.img} title={book.title} price={book.price} />
 						</Col>
 					))}
 				</Row>
