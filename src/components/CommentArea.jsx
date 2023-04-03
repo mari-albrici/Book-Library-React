@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import AddComment from './AddComment';
+import AddComment from './AddComment';
 import CommentList from './CommentList';
 
 let autKey =
@@ -41,6 +41,7 @@ class CommentArea extends Component {
 			<>
 				{this.state.comments.length > 0 && <CommentList comment={this.state.comments} />}
 				{this.state.comments.length <= 0 && <p className="text-muted">There are no comments to be shown yet.</p>}
+				<AddComment id={this.props.id} />
 			</>
 		);
 	}

@@ -12,6 +12,7 @@ class SingleBook extends Component {
 
 	render() {
 		const selectedClass = this.state.selected ? 'border border-danger border-3' : '';
+		const showComments = this.state.selected ? 'd-block' : 'd-none';
 
 		return (
 			<Card onClick={this.handleClick} className={selectedClass} id={this.props.id}>
@@ -21,7 +22,7 @@ class SingleBook extends Component {
 					<Button variant="primary" className="px-3">
 						€{this.props.price}
 					</Button>
-					<CommentArea id={this.props.id} />
+					<CommentArea id={this.props.id} className={showComments} />
 				</Card.Body>
 			</Card>
 		);
