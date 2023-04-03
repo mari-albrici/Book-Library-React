@@ -12,17 +12,16 @@ class SingleBook extends Component {
 
 	render() {
 		const selectedClass = this.state.selected ? 'border border-danger border-3' : '';
-		const showComments = this.state.selected ? 'd-block' : 'd-none';
 
 		return (
-			<Card onClick={this.handleClick} className={selectedClass} id={this.props.id}>
-				<Card.Img variant="top" src={this.props.img} style={{ height: '500px' }} />
+			<Card className={selectedClass} id={this.props.id}>
+				<Card.Img variant="top" src={this.props.img} style={{ height: '500px' }} onClick={this.handleClick} />
 				<Card.Body>
 					<Card.Title className="text-truncate">{this.props.title}</Card.Title>
 					<Button variant="primary" className="px-3">
 						€{this.props.price}
 					</Button>
-					<CommentArea id={this.props.id} className={showComments} />
+					{this.state.selected && <CommentArea id={this.props.id} />}
 				</Card.Body>
 			</Card>
 		);
