@@ -2,8 +2,8 @@ import { Component } from 'react';
 import { Row, Col, Form, FormControl } from 'react-bootstrap';
 import fantasy from '../data/fantasy.json';
 import history from '../data/history.json';
-// import horror from '../data/history.json';
-// import romance from '../data/romance.json';
+import horror from '../data/history.json';
+import romance from '../data/romance.json';
 import scifi from '../data/scifi.json';
 import SingleBook from './SingleBook';
 
@@ -11,7 +11,7 @@ class BookList extends Component {
 	state = {
 		initialValue: null,
 		searchString: '',
-		allTheBooks: [...scifi, ...fantasy, ...history],
+		allTheBooks: [...scifi, ...fantasy, ...history, ...horror, ...romance],
 	};
 
 	handleChange = (event) => {
