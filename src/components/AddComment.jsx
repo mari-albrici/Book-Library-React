@@ -30,16 +30,13 @@ class AddComment extends Component {
 		}
 	};
 
-	componentDidUpdate() {
-		this.pushComments();
-	}
-
 	handleClick = () => {
 		this.setState({ selected: !this.state.selected });
 	};
 
 	submitComment = (e) => {
 		e.preventDefault();
+		this.pushComments();
 	};
 
 	handleChange = (propertyValue) => {
