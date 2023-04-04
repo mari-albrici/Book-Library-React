@@ -32,17 +32,12 @@ const CommentArea = (props) => {
 	};
 
 	useEffect(() => {
-		return () => {
-			fetchComments();
-		};
+		fetchComments();
 	});
 
-	useEffect(() => {
-		async function fetchData() {
-			await fetchComments();
-		}
-		fetchData();
-	}, [props.id]);
+	// useEffect(() => {
+	// 	fetchComments();
+	// }, []);
 
 	useEffect(() => {
 		return () => {};

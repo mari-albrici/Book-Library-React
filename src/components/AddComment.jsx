@@ -7,6 +7,7 @@ let autKey =
 const AddComment = (props) => {
 	const [comment, setComment] = useState('');
 	const [rate, setRate] = useState('');
+	const [elementId, setElementId] = useState(props.id);
 	const [error, setError] = useState(false);
 	const [errorMsg, setErrorMsg] = useState('');
 	const [selected, setSelected] = useState(false);
@@ -19,7 +20,7 @@ const AddComment = (props) => {
 					'Content-type': 'application/json; charset=UTF-8',
 				},
 				method: 'POST',
-				body: JSON.stringify({ comment: comment, rate: rate, elementId: props.id }),
+				body: JSON.stringify({ comment: comment, rate: rate, elementId: elementId }),
 			});
 
 			if (response.ok) {
